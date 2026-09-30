@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thống kê chất lượng tháng 9/2026 - MITEX</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;900&display=swap">
+<style>
+:root{--bg:#EEEDE6;--card:#FFFFFF;--ink:#2B211A;--muted:#7A6E63;--coffee:#3E2A1E;--coffee2:#6B4A35;--moss:#5B6B3A;--moss2:#8A9A62;--rust:#B4532A;--line:#DDD8CB;--header-bg:#103576;--header-bg-dark:#0A2352;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1612;--card:#261F19;--ink:#EFE8DD;--muted:#A99D8F;--coffee:#150F0B;--coffee2:#C39A78;--moss:#9DB070;--moss2:#6F8048;--rust:#E07B4C;--line:#3B322A;--header-bg:#0A2352}}
+:root[data-theme="dark"]{--bg:#1B1612;--card:#261F19;--ink:#EFE8DD;--muted:#A99D8F;--coffee:#150F0B;--coffee2:#C39A78;--moss:#9DB070;--moss2:#6F8048;--rust:#E07B4C;--line:#3B322A;--header-bg:#0A2352}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 'Be Vietnam Pro',system-ui,'Segoe UI',Arial,sans-serif}
+header{background:var(--header-bg);color:#FFFFFF;padding:24px 24px 22px}
+.wrap{max-width:1080px;margin:0 auto}
+
+/* Branding & Logo Style */
+.brand-container{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.15)}
+.brand-logo{height:46px;width:auto;background:#FFFFFF;padding:4px 12px;border-radius:6px;display:block;flex-shrink:0;object-fit:contain}
+.brand-info{display:flex;flex-direction:column}
+.company-name{font-size:15px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;color:#FFFFFF;margin:0;line-height:1.2}
+.company-sub{font-size:12px;color:#B3C7EC;margin-top:3px}
+
+h1{margin:0 0 4px;font-size:24px;font-weight:700;letter-spacing:-.01em;color:#FFFFFF}
+header p{margin:0;color:#B3C7EC;font-size:13.5px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);color:#FFFFFF;padding:6px 14px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer;transition:all 0.2s}
+.chip:hover{background:rgba(255,255,255,0.2)}
+.chip[aria-pressed=true]{background:#E07B4C;border-color:#E07B4C;color:#FFFFFF;font-weight:600}
+.chip:focus-visible,select:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
+main{padding:20px 24px 40px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:10px;margin-top:-34px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.kpi{padding:18px 20px;border-right:1px solid var(--line)}.kpi:last-child{border:0}
+.kpi b{display:block;font-size:30px;line-height:1.1;font-weight:700;color:var(--coffee2)}
+.kpi span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.kpi em{display:block;font-style:normal;font-size:12.5px;margin-top:6px;font-weight:600}
+.up{color:var(--rust)}.down{color:var(--moss)}
+.note{font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;min-width:0}
+.card h2{margin:0 0 2px;font-size:16px;font-weight:600}
+.card .sub{color:var(--muted);font-size:13px;margin:0 0 12px}
+.full{grid-column:1/-1}
+svg{width:100%;height:auto;display:block}
+svg text{fill:var(--muted);font:11px 'Be Vietnam Pro',sans-serif}
+.legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin-top:8px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.hb{display:grid;grid-template-columns:48px 1fr 92px;align-items:center;gap:10px;margin:11px 0;font-size:13.5px}
+.bar{display:flex;height:16px;background:var(--bg);border-radius:4px;overflow:hidden}
+.bar div{height:100%}
+.pill{font-size:12px;padding:2px 8px;border-radius:999px;text-align:center;font-weight:600}
+.pill.ok{background:rgba(91,107,58,.16);color:var(--moss)}.pill.bad{background:rgba(180,83,42,.16);color:var(--rust)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+select{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th{text-align:left;font-weight:600;color:var(--coffee2);border-bottom:2px solid var(--line);padding:8px 10px;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.sev td:first-child{box-shadow:inset 3px 0 var(--rust)}
+tr.mid td:first-child{box-shadow:inset 3px 0 #C58A2B}
+.tag{font-size:12px;font-weight:600;padding:1px 8px;border-radius:4px;background:var(--bg);color:var(--coffee2)}
+ul.ins{margin:0;padding:0;list-style:none}
+ul.ins li{padding:9px 0 9px 16px;border-bottom:1px solid var(--line);position:relative}
+ul.ins li:last-child{border:0}
+ul.ins li:before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;border-radius:50%;background:var(--moss)}
+ul.ins li.w:before{background:var(--rust)}
+footer{color:var(--muted);font-size:12.5px;margin-top:18px}
+@media(max-width:820px){
+  .brand-container{flex-direction:column;align-items:flex-start;gap:10px}
+  .kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(2){border-right:0}.kpi:nth-child(-n+2){border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}h1{font-size:20px}main,header{padding-left:16px;padding-right:16px}
+}
+</style></head>
+<body>
+<header>
+<div class="wrap">
+  <div class="brand-container">
+    <!-- Hiển thị Logo từ file logo_mitex.png trong cùng folder -->
+    <img src="logo_mitex.png" alt="MITEX Logo" class="brand-logo">
+    <div class="brand-info">
+      <div class="company-name">Công ty CP Kỹ thuật và Thiết bị Công nghiệp Việt Nam</div>
+      <div class="company-sub">Hệ thống quản lý chất lượng & báo cáo sản xuất</div>
+    </div>
+  </div>
+  <h1 id="ttl">Thống kê tình hình chất lượng – Tháng 9/2026</h1>
+  <p>Nguồn: sheet TP-2026, cập nhật đến ngày 29/09/2026</p>
+  <div class="chips" id="chips" role="group" aria-label="Chọn tháng"></div>
+</div>
+</header>
+<main><div class="wrap">
+<section class="kpis" id="kpis"></section>
+<p class="note">Tỷ lệ sai hỏng = sai hỏng ÷ sản lượng BTP + TP. Sản lượng TP-CA (đo cao áp) tính riêng, không đưa vào mẫu số.</p>
+<div class="grid">
+ <div class="card"><h2>Xu hướng tỷ lệ sai hỏng</h2><p class="sub">Tháng 4 đến tháng 9/2026, cột là sản lượng BTP + TP</p><div id="trend"></div>
+  <div class="legend"><span><i style="background:var(--moss2)"></i>Sản lượng</span><span><i style="background:var(--coffee2)"></i>Tỷ lệ sai hỏng (%)</span></div></div>
+ <div class="card"><h2>Theo chủng loại</h2><p class="sub" id="clsub"></p><div id="cl"></div>
+  <div class="legend"><span><i style="background:var(--moss)"></i>BTP</span><span><i style="background:var(--coffee2)"></i>TP</span></div></div>
+ <div class="card full"><h2>Sản lượng theo ngày</h2><p class="sub">Cột màu nâu đỏ là ngày phát sinh sai hỏng</p><div id="day"></div></div>
+ <div class="card full"><div class="tools"><div><h2>Chi tiết sai hỏng</h2><p class="sub" style="margin:0" id="badsub"></p></div>
+  <label style="font-size:13px;color:var(--muted)">Lọc <select id="flt"><option value="">Tất cả</option><option>BTP</option><option>TP</option></select></label></div>
+  <div class="tw"><table><thead><tr><th>Ngày</th><th>Khách hàng</th><th>Công đoạn</th><th>Chủng loại</th><th>Tỷ số</th><th>SL sai</th><th>Nguyên nhân</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+ <div class="card full"><h2>Nhận xét</h2><ul class="ins" id="ins"></ul></div>
+</div>
+<footer>Sản phẩm: PTE, PTO (máy biến điện áp), MOF (bộ đo đếm), CTE/CTO (máy biến dòng). BTP: bán thành phẩm, TP: thành phẩm.</footer>
+</div></main>
+<script>
+const D={"4": {"orders": 116, "loai": {"BTP": [521, 5], "TP": [504, 1], "TP-CA": [26, 0]}, "cl": {"CTE": {"TP-CA": [3, 0]}, "CTO": {"TP-CA": [22, 0]}, "MOF": {"BTP": [1, 0], "TP": [3, 0], "TP-CA": [1, 0]}, "PTE": {"BTP": [431, 5], "TP": [416, 1]}, "PTO": {"BTP": [89, 0], "TP": [85, 0]}}, "day": [[1, 34, 0], [2, 45, 1], [3, 43, 0], [4, 38, 0], [6, 20, 2], [7, 33, 0], [9, 40, 0], [10, 22, 0], [11, 51, 0], [13, 35, 0], [14, 36, 0], [15, 47, 1], [16, 52, 0], [17, 48, 1], [18, 67, 0], [20, 77, 0], [21, 91, 0], [22, 76, 0], [23, 55, 0], [24, 49, 0], [27, 25, 1], [28, 38, 0], [29, 29, 0]], "bad": [["02/04", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 22, 1, "Tháng 10"], ["06/04", "NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3/0,11:3", 9, 2, "1SP: SC THỪA38V; 1SP: BAỎ VỆ THIẾU 1V"], ["15/04", "BÌNH DƯƠNG", "BTP", "PTE", "12,7/0,22", 30, 1, "TC THỪA 1V"], ["17/04", "BÌNH DƯƠNG", "BTP", "PTE", "12,7/0,22", 36, 1, "TC THỪA 1V"], ["27/04", "BÌNH DƯƠNG", "TP", "PTE", "12,7/0,22", 21, 1, "đấu lộn a-n"]]}, "5": {"orders": 129, "loai": {"BTP": [750, 7], "TP": [641, 5], "TP-CA": [3, 0]}, "cl": {"MOF": {"BTP": [4, 0], "TP": [3, 0], "TP-CA": [3, 0]}, "PTE": {"BTP": [579, 5], "TP": [510, 5]}, "PTO": {"BTP": [167, 2], "TP": [128, 0]}}, "day": [[4, 23, 0], [5, 78, 3], [6, 53, 0], [7, 54, 0], [8, 54, 0], [9, 59, 0], [11, 54, 0], [12, 53, 0], [13, 65, 0], [14, 82, 1], [15, 92, 3], [16, 63, 0], [18, 48, 0], [19, 53, 0], [20, 64, 0], [21, 100, 1], [23, 79, 0], [26, 44, 0], [27, 57, 0], [28, 84, 3], [29, 74, 0], [30, 61, 1]], "bad": [["05/05", "HB", "TP", "PTE", "12,7/0,24", 28, 3, "1SP: ĐỨT SC; 2SP: R CÁCH ĐIỆN THẤP=0GΩ"], ["14/05", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 40, 1, "tc thừa 1v                            LỤA ĐO"], ["15/05", "AST", "BTP", "PTO", "22/0,22", 19, 1, "TC THIẾU 1V"], ["15/05", "TỒN KHO NHÃN CHỜ", "TP", "PTE", "22:V3/0,11:V3", 41, 2, "1SP: ĐỨT SC; 1SP ĐỨT TC CÙNG ĐO VỚI LỤA"], ["21/05", "NHÃN CHỜ", "BTP", "PTO", "35:V3/0,1:V3", 6, 1, "TC THIẾU 1V"], ["28/05", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 36, 3, "2SP: SC THIẾU 35V; 1SP: SC THIẾU 27V"], ["30/05", "Á CHÂU", "BTP", "PTE", "22:V3/0,11:V3/0,11:V3", 3, 1, "SC THIẾU 137V"]]}, "6": {"orders": 145, "loai": {"BTP": [578, 7], "TP": [615, 0], "TP-CA": [2, 0]}, "cl": {"CTO": {"BTP": [3, 0], "TP": [1, 0]}, "MOF": {"BTP": [3, 0], "TP": [4, 0], "TP-CA": [2, 0]}, "PTE": {"BTP": [412, 6], "TP": [457, 0]}, "PTO": {"BTP": [160, 1], "TP": [153, 0]}}, "day": [[3, 31, 1], [4, 61, 0], [5, 40, 0], [6, 47, 0], [8, 54, 3], [9, 59, 1], [10, 42, 0], [11, 31, 0], [12, 29, 0], [13, 54, 0], [14, 39, 0], [15, 35, 0], [17, 44, 0], [18, 26, 0], [19, 49, 0], [20, 35, 0], [21, 47, 0], [22, 48, 0], [23, 64, 1], [24, 72, 1], [25, 58, 0], [26, 59, 0], [27, 43, 0], [29, 59, 0], [30, 69, 0]], "bad": [["03/06", "TEST NƯỚC NGOÀI", "BTP", "PTE", "38,5:V3/0,11:V3/0,11:V3/0,11:3", 1, 1, "SC THIẾU 3260V"], ["08/06", "HAECO", "BTP", "PTE", "12:V3/0,1:V3/0,1:V3/0,1:3", 3, 3, "SC THỪA 38V"], ["09/06", "Á CHÂU", "BTP", "PTE", "22:V3/0,11:V3/0,11:V3", 5, 1, "SC THỪA 16V"], ["23/06", "SPC TÂY NINH", "BTP", "PTO", "22:V3/0,11:V3", 8, 1, "thừa 30 vòng sơ"], ["24/06", "Á CHÂU", "BTP", "PTE", "35:V3/0,11:V3/0,11:V3/0,11:3", 8, 1, "quấn nhầm mạch 2 thành 0,11/3"]]}, "7": {"orders": 137, "loai": {"BTP": [626, 12], "TP": [688, 4]}, "cl": {"MOF": {"BTP": [4, 0], "TP": [3, 0]}, "PTE": {"BTP": [473, 11], "TP": [511, 2]}, "PTO": {"BTP": [149, 1], "TP": [174, 2]}}, "day": [[1, 53, 0], [2, 54, 1], [3, 46, 0], [4, 59, 1], [6, 66, 1], [7, 40, 0], [8, 35, 0], [9, 48, 0], [10, 64, 3], [11, 45, 0], [13, 39, 0], [14, 55, 0], [15, 43, 1], [16, 15, 0], [17, 23, 0], [20, 40, 0], [21, 72, 0], [22, 55, 1], [23, 52, 2], [24, 68, 1], [25, 56, 1], [27, 61, 0], [28, 54, 1], [29, 65, 1], [30, 53, 0], [31, 53, 2]], "bad": [["02/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 20, 1, "thiếu 1 vòng thứ"], ["04/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 30, 1, "ss -9,6 thiếu 10 vòng thứ"], ["06/07", "Á CHÂU", "TP", "PTE", "22:V3/0,11:V3/0,11:V3", 12, 1, "PHÓNG CA"], ["10/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 20, 2, "ss -0,96  thiếu 1 vòng thứ và -5,3 thiếu 5 vòng thứ"], ["10/07", "Á Châu", "BTP", "PTE", "6600/110", 5, 1, "thừa 1 vòng thứ"], ["15/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 9, 1, "ss 0,25 thiếu 25 vòng sơ"], ["22/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 20, 1, "ss -5,3 thiếu 5 vòng thứ"], ["23/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 23, 2, "1q ss 0,26 thiếu 25 vòng sơ / 1q ss -0,96 thiếu 1 vòng thứ"], ["24/07", "AST", "BTP", "PTO", "35/0,22", 16, 1, "ss -0,5 thiếu 1 vòng sơ"], ["25/07", "Á Châu", "BTP", "PTE", "12,7/0,22", 14, 1, "ss 1,07 thừa 3 vòng thứ cấp"], ["28/07", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 12, 1, "ss 0,25 thiếu 25 vòng sơ"], ["29/07", "AST", "TP", "PTO", "35/0,22", 7, 1, "Đứt sơ cấp"], ["31/07", "haipo", "TP", "PTE", "35:V3/0,1:V3/0,1:3", 3, 1, "Ngược da-dn"], ["31/07", "Á CHÂU", "TP", "PTO", "35/0,22", 1, 1, "phóng ca"]]}, "8": {"orders": 112, "loai": {"BTP": [782, 13], "TP": [744, 3], "TP-CA": [82, 0]}, "cl": {"MOF": {"BTP": [3, 0], "TP": [9, 1]}, "PTE": {"BTP": [724, 13], "TP": [593, 2], "TP-CA": [82, 0]}, "PTO": {"BTP": [55, 0], "TP": [142, 0]}}, "day": [[1, 44, 1], [3, 51, 0], [4, 51, 1], [5, 58, 0], [6, 48, 0], [7, 50, 0], [8, 59, 1], [10, 76, 2], [11, 52, 3], [12, 56, 0], [13, 51, 0], [14, 63, 4], [15, 66, 0], [17, 88, 1], [18, 79, 0], [19, 74, 0], [20, 62, 0], [21, 67, 0], [22, 60, 0], [24, 78, 1], [25, 64, 0], [26, 87, 1], [27, 64, 0], [28, 82, 0], [29, 78, 1]], "bad": [["01/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 22, 1, "ss 0,29 thiếu 26 vòng sơ"], ["04/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 21, 1, "ss 3,4 thừa 3 vòng thứ"], ["08/08", "TỒN KHO NHÃN CHỜ", "TP", "PTE", "22:V3/0,11:V3", 20, 1, "chập sơ cấp"], ["10/08", "đaklak", "BTP", "PTE", "22/0,22", 10, 2, "1 q thiếu 1 vòng thứ ,thưa 66 vòng sơ và 1q thừa 58 vòng sơ"], ["11/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 23, 3, "thừa 53 vòng sơ và 78 vòng /40 vòng"], ["14/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 29, 4, ""], ["17/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 47, 1, ""], ["24/08", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 25, 1, "ss- 9,6"], ["26/08", "meda", "TP", "MOF", "3x22:V3/0,1:V3&3x50/5", 1, 1, "phóng ca"], ["29/08", "TỒN KHO NHÃN CHỜ", "TP", "PTE", "22:V3/0,11:V3", 8, 1, "đứt sơ cấp"]]}, "9": {"orders": 85, "loai": {"BTP": [740, 3], "TP": [594, 5], "TP-CA": [198, 0]}, "cl": {"MOF": {"TP": [10, 5]}, "PTE": {"BTP": [731, 3], "TP": [539, 0], "TP-CA": [198, 0]}, "PTO": {"BTP": [9, 0], "TP": [45, 0]}}, "day": [[3, 81, 0], [4, 67, 0], [5, 54, 0], [7, 64, 0], [8, 69, 0], [9, 73, 0], [10, 71, 0], [11, 81, 0], [12, 77, 0], [14, 62, 1], [15, 70, 0], [16, 76, 0], [17, 66, 0], [18, 43, 5], [19, 69, 1], [21, 67, 0], [22, 64, 0], [23, 65, 0], [24, 51, 0], [25, 69, 0], [26, 68, 1], [28, 63, 0], [29, 62, 0]], "bad": [["14/09", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 28, 1, "thừa 1 vòng thứ"], ["18/09", "Khánh hòa", "TP", "MOF", "22:V3/0,11:V3", 5, 5, "đo cách điện tần số nâng cao k đạt"], ["19/09", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 33, 1, "thiếu 1 vòng thứ"], ["26/09", "TỒN KHO NHÃN CHỜ", "BTP", "PTE", "22:V3/0,11:V3", 37, 1, "thừa 3 vòng thứ"]]}};
+const ms=Object.keys(D).map(Number);let cur=9,flt='';
+const $=id=>document.getElementById(id);
+const tot=m=>{const l=D[m].loai;const q=(l.BTP?.[0]||0)+(l.TP?.[0]||0);const s=(l.BTP?.[1]||0)+(l.TP?.[1]||0);return{q,s,ca:l['TP-CA']?.[0]||0,r:q?s/q*100:0}};
+const f=n=>n.toLocaleString('vi-VN');const p=n=>n.toFixed(2).replace('.',',')+'%';
+function chips(){$('chips').innerHTML=ms.map(m=>`<button class="chip" aria-pressed="${m===cur}" data-m="${m}">Tháng ${m}</button>`).join('');
+ $('chips').querySelectorAll('button').forEach(b=>b.onclick=()=>{cur=+b.dataset.m;render()})}
+function kpis(){const t=tot(cur),pv=cur>ms[0]?tot(cur-1):null;
+ const dl=(a,b,unit)=>{if(b===null)return'';const x=a-b;if(x===0)return'<em>Bằng tháng trước</em>';return`<em class="${x>0?'up':'down'}">${x>0?'▲':'▼'} ${unit==='%'?p(Math.abs(x)).replace('%',' điểm %'):f(Math.abs(x))} so với tháng ${cur-1}</em>`};
+ const days=D[cur].bad.length?new Set(D[cur].bad.map(b=>b[0])).size:0;
+ $('kpis').innerHTML=`<div class="kpi"><b>${f(t.q+t.ca)}</b><span>Tổng kiểm tra (gồm ${f(t.ca)} TP-CA)</span>${dl(t.q+t.ca,pv?tot(cur-1).q+tot(cur-1).ca:null)}</div>
+ <div class="kpi"><b>${t.s}</b><span>Quả sai hỏng</span>${dl(t.s,pv?pv.s:null)}</div>
+ <div class="kpi"><b>${p(t.r)}</b><span>Tỷ lệ sai hỏng</span>${dl(t.r,pv?pv.r:null,'%')}</div>
+ <div class="kpi"><b>${D[cur].orders}</b><span>Lệnh sản xuất (${days} ngày có sai hỏng)</span>${dl(D[cur].orders,pv?D[cur-1].orders:null)}</div>`}
+function trend(){const W=560,H=250,L=36,R=36,T=16,B=30,n=ms.length,bw=(W-L-R)/n;
+ const mq=Math.max(...ms.map(m=>tot(m).q))*1.15,mr=Math.max(...ms.map(m=>tot(m).r))*1.25;
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Xu hướng tỷ lệ sai hỏng theo tháng">`;
+ for(let i=0;i<=4;i++){const y=T+(H-T-B)*i/4;s+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${L-6}" y="${y+4}" text-anchor="end">${f(Math.round(mq*(1-i/4)))}</text><text x="${W-R+6}" y="${y+4}">${(mr*(1-i/4)).toFixed(1).replace('.',',')}</text>`}
+ let pts=[];ms.forEach((m,i)=>{const t=tot(m),x=L+bw*i+bw*.2,h=(H-T-B)*t.q/mq,y=H-B-h,cx=x+bw*.3,py=T+(H-T-B)*(1-t.r/mr);pts.push([cx,py,t.r]);
+  s+=`<rect x="${x}" y="${y}" width="${bw*.6}" height="${h}" rx="3" fill="var(--moss2)" opacity="${m===cur?1:.45}"/><text x="${cx}" y="${H-10}" text-anchor="middle" ${m===cur?'style="font-weight:700;fill:var(--ink)"':''}>T${m}</text>`});
+ s+=`<polyline points="${pts.map(a=>a[0]+','+a[1]).join(' ')}" fill="none" stroke="var(--coffee2)" stroke-width="2.5"/>`;
+ pts.forEach((a,i)=>{s+=`<circle cx="${a[0]}" cy="${a[1]}" r="${ms[i]===cur?6:4}" fill="${ms[i]===cur?'var(--rust)':'var(--coffee2)'}" stroke="var(--card)" stroke-width="2"/><text x="${a[0]}" y="${a[1]-11}" text-anchor="middle" style="fill:var(--ink);font-weight:600">${p(a[2])}</text>`});
+ $('trend').innerHTML=s+'</svg>'}
+function cl(){const c=D[cur].cl;$('clsub').textContent=`Tháng ${cur}: sản lượng và số quả sai hỏng`;
+ const mx=Math.max(...Object.values(c).map(o=>(o.BTP?.[0]||0)+(o.TP?.[0]||0)));
+ $('cl').innerHTML=Object.keys(c).sort((a,b)=>{const g=k=>(c[k].BTP?.[0]||0)+(c[k].TP?.[0]||0);return g(b)-g(a)}).map(k=>{const o=c[k],b=o.BTP?.[0]||0,t=o.TP?.[0]||0,s=(o.BTP?.[1]||0)+(o.TP?.[1]||0),w=(b+t)/mx*100;
+  return`<div class="hb"><b>${k}</b><div><div class="bar" style="width:${Math.max(w,3)}%"><div style="flex:${b};background:var(--moss)"></div><div style="flex:${t};background:var(--coffee2)"></div></div><span style="font-size:12px;color:var(--muted)">${f(b+t)} quả</span></div><span class="pill ${s?'bad':'ok'}">${s?s+' sai hỏng':'Không sai'}</span></div>`}).join('')}
+function day(){const a=D[cur].day,W=900,H=200,L=30,B=26,T=10,bw=(W-L)/a.length,mx=Math.max(...a.map(x=>x[1]))*1.1;
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Sản lượng theo ngày">`;
+ for(let i=0;i<=3;i++){const y=T+(H-T-B)*i/3;s+=`<line x1="${L}" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${L-6}" y="${y+4}" text-anchor="end">${Math.round(mx*(1-i/3))}</text>`}
+ a.forEach((x,i)=>{const h=(H-T-B)*x[1]/mx,bx=L+bw*i+bw*.15;s+=`<rect x="${bx}" y="${H-B-h}" width="${bw*.7}" height="${h}" rx="2" fill="${x[2]?'var(--rust)':'var(--moss2)'}"><title>Ngày ${x[0]}: ${x[1]} quả, ${x[2]} sai hỏng</title></rect><text x="${bx+bw*.35}" y="${H-9}" text-anchor="middle">${x[0]}</text>`;
+  if(x[2])s+=`<text x="${bx+bw*.35}" y="${H-B-h-5}" text-anchor="middle" style="fill:var(--rust);font-weight:700">${x[2]}</text>`});
+ $('day').innerHTML=s+'</svg>'}
+function table(){const r=D[cur].bad.filter(b=>!flt||b[2]===flt);$('badsub').textContent=`Tháng ${cur}: ${r.length} dòng có sai hỏng`;
+ $('tb').innerHTML=r.length?r.map(b=>`<tr class="${b[6]>=5?'sev':'mid'}"><td>${b[0]}</td><td>${b[1]}</td><td><span class="tag">${b[2]}</span></td><td>${b[3]}</td><td>${b[4]}</td><td><b>${b[6]}</b> / ${b[5]}</td><td>${b[7]||'Chưa ghi nguyên nhân'}</td></tr>`).join(''):'<tr><td colspan="7" style="text-align:center;color:var(--muted)">Không có sai hỏng theo bộ lọc này.</td></tr>'}
+function ins(){const t=tot(cur),L=[];const rs=ms.map(m=>tot(m).r),best=Math.min(...rs);
+ if(cur>ms[0]){const pv=tot(cur-1);const x=t.r-pv.r;L.push([x<=0,`Tỷ lệ sai hỏng ${p(t.r)}, ${x<=0?'giảm':'tăng'} ${p(Math.abs(x)).replace('%',' điểm %')} so với tháng ${cur-1} (${p(pv.r)}).`])}
+ else L.push([true,`Tỷ lệ sai hỏng tháng ${cur} là ${p(t.r)}.`]);
+ if(t.r===best)L.push([true,'Đây là mức thấp nhất trong giai đoạn tháng 4 đến tháng 9.']);
+ const bad=D[cur].bad;
+ if(bad.length){const g={};bad.forEach(b=>g[b[3]]=(g[b[3]]||0)+b[6]);const top=Object.entries(g).sort((a,b)=>b[1]-a[1])[0];L.push([false,`Chủng loại sai hỏng nhiều nhất: ${top[0]} với ${top[1]} quả. ${bad.filter(b=>b[3]===top[0]).map(b=>b[7]).filter(Boolean)[0]||''}`.trim()]);
+  const bt=bad.filter(b=>b[2]==='BTP').reduce((a,b)=>a+b[6],0);if(bt)L.push([false,`${bt} quả sai hỏng phát sinh ở khâu BTP, chủ yếu do thừa/thiếu vòng dây. Cần kiểm soát lại khâu quấn dây.`])}
+ else L.push([true,'Không có quả sai hỏng nào trong tháng.']);
+ $('ins').innerHTML=L.map(x=>`<li class="${x[0]?'':'w'}">${x[1]}</li>`).join('')}
+function render(){$('ttl').textContent=`Thống kê tình hình chất lượng – Tháng ${cur}/2026`;chips();kpis();trend();cl();day();table();ins()}
+$('flt').onchange=e=>{flt=e.target.value;table()};
+render();
+</script></body></html>
